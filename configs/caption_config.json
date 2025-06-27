@@ -1,0 +1,125 @@
+{
+  "tag_formatters": {
+    "1girl": [
+      "a girl", "a female", "a young woman",
+      "a female figure", "a lady", "a woman",
+      "a feminine character", "a female persona"
+    ],
+    "1boy": [
+      "a boy", "a male", "a young man",
+      "a male figure", "a gentleman", "a man",
+      "a masculine character", "a male persona"
+    ],
+    "solo": [
+      "alone", "by herself", "by himself", "solo",
+      "standing alone", "by their lonesome", "isolated",
+      "unaccompanied", "solitary", "single"
+    ],
+    
+    "hair_length": {
+      "long_hair": ["long", "flowing", "lengthy", "lush"],
+      "short_hair": ["short", "cropped", "bobbed", "trim"],
+      "medium_hair": ["medium-length", "shoulder-length", "mid-length"],
+      "very_long_hair": ["very long", "extremely long", "floor-length"]
+    },
+    
+    "hair_style": {
+      "curly_hair": ["curly", "ringleted", "spiraled", "coiled"],
+      "straight_hair": ["straight", "sleek", "smooth", "unwaved"],
+      "wavy_hair": ["wavy", "undulating", "rippling", "curvaceous"],
+      "spiky_hair": ["spiky", "pointy", "jagged", "edgy"],
+      "braided_hair": ["braided", "plaited", "woven", "twined"],
+      "ponytail": ["in a ponytail", "tied back", "pulled back"]
+    },
+    
+    "hair_color": {
+      "black_hair": ["black", "ebony", "jet-black", "raven"],
+      "blonde_hair": ["blonde", "golden", "platinum", "fair-haired"],
+      "brown_hair": ["brown", "brunette", "chestnut", "auburn"],
+      "red_hair": ["red", "ginger", "auburn", "fiery"],
+      "blue_hair": ["blue", "azure", "sapphire", "cobalt"],
+      "pink_hair": ["pink", "rosy", "blush-colored", "pastel pink"],
+      "silver_hair": ["silver", "argent", "platinum", "gray"]
+    },
+    
+    "eye_state": {
+      "closed_eyes": ["closed", "shut", "lowered"],
+      "wide_eyes": ["wide open", "alert", "fully open"],
+      "narrow_eyes": ["narrow", "slitted", "squinting"],
+      "sleepy_eyes": ["sleepy", "drowsy", "heavy-lidded"],
+      "sparkling_eyes": ["sparkling", "twinkling", "shimmering"]
+    },
+    
+    "eye_color": {
+      "blue_eyes": ["blue", "azure", "sapphire", "ocean blue"],
+      "brown_eyes": ["brown", "hazel", "amber", "chocolate"],
+      "green_eyes": ["green", "emerald", "jade", "forest green"],
+      "red_eyes": ["red", "crimson", "ruby", "blood-red"],
+      "heterochromia": ["heterochromatic", "two-colored", "multi-colored"]
+    },
+    
+    "expression": {
+      "smiling": ["smiling", "grinning", "beaming", "smirking"],
+      "blushing": ["blushing", "flushed", "rosy-cheeked"],
+      "angry": ["angry", "furious", "irate", "scowling"],
+      "sad": ["sad", "tearful", "downcast", "melancholy"],
+      "surprised": ["surprised", "astonished", "shocked"],
+      "confused": ["confused", "bewildered", "puzzled"]
+    },
+    
+    "mouth": {
+      "open_mouth": ["with mouth open", "mouth agape", "parted lips"],
+      "closed_mouth": ["with mouth closed", "lips sealed", "mouth shut"],
+      "laughing": ["laughing", "chuckling", "giggling"],
+      "pouting": ["pouting", "sulking", "with a pout"]
+    },
+    
+    "clothing": {
+      "school_uniform": ["wearing a school uniform", "in school attire", "dressed for school"],
+      "kimono": ["wearing a kimono", "in traditional Japanese attire", "dressed in a kimono"],
+      "maid_outfit": ["in a maid outfit", "wearing maid attire", "dressed as a maid"],
+      "business_suit": ["in a business suit", "wearing formal attire", "dressed professionally"],
+      "casual_clothes": ["in casual clothes", "wearing everyday attire", "dressed casually"],
+      "swimwear": ["in swimwear", "wearing a swimsuit", "dressed for the beach"],
+      "armor": ["wearing armor", "in battle gear", "dressed for combat"]
+    },
+    
+    "accessories": {
+      "glasses": ["wearing glasses", "with spectacles", "sporting eyewear"],
+      "hat": ["wearing a hat", "with headwear", "sporting a cap"],
+      "jewelry": ["with jewelry", "wearing accessories", "adorned with trinkets"],
+      "scarf": ["wearing a scarf", "with neckwear", "bundled up with a scarf"]
+    },
+    
+    "environment": {
+      "indoors": ["indoors", "inside", "in an interior setting"],
+      "outdoors": ["outdoors", "outside", "in an exterior setting"],
+      "nature": ["in nature", "surrounded by greenery", "amidst natural scenery"],
+      "urban": ["in an urban setting", "amidst cityscapes", "in metropolitan surroundings"]
+    },
+    
+    "actions": {
+      "running": ["running", "sprinting", "dashing"],
+      "jumping": ["jumping", "leaping", "bounding"],
+      "sitting": ["sitting", "seated", "perched"],
+      "dancing": ["dancing", "moving rhythmically", "engaged in dance"]
+    },
+    
+    "other": {
+      "_default": "replace_underscores"
+    }
+  },
+  
+  "feature_order": [
+    "hair", "eyes", "expression", "mouth",
+    "clothing", "accessories", "environment",
+    "actions", "other"
+  ],
+  
+  "templates": [
+    "{character} with {features}.",
+    "{character} appears {features}.",
+    "Showing {character} {features}.",
+    "{character} {features}."
+  ]
+}
