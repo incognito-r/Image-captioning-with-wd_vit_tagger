@@ -2,8 +2,8 @@ import os
 import re
 # note : Current Implementation: u can add new files to folder but dont delete after renaming by script.
 # Settings
-base_dir = "data/images/custom/IzzieBlake-04/"  # <-- change this
-code = '04'  # Prefix for filenames
+base_dir = "data/images/custom/random-07/"  # <-- change this
+code = '07'  # Prefix for filenames
 counter = 1
 
 # Define allowed image extensions (lowercase)
