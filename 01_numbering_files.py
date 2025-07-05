@@ -1,9 +1,10 @@
 import os
 import re
+
 # note : Current Implementation: u can add new files to folder but dont delete after renaming by script.
 # Settings
-base_dir = "data/images/custom/random-07/"  # <-- change this
-code = '07'  # Prefix for filenames
+base_dir = "data/images/custom/stock_images-01/"  # <-- change this
+code = '01'  # Prefix for filenames
 counter = 1
 
 # Define allowed image extensions (lowercase)
@@ -13,7 +14,8 @@ pattern = re.compile(rf"^{re.escape(code)}-(\d+)(\.[^.]+)?$", re.IGNORECASE)
 all_files = []
 for root, dirs, files in os.walk(base_dir):
     for file in files:
-        all_files.append(os.path.join(root, file))
+        all_files.append(os.path.normpath(os.path.join(root, file)))
+        # all_files.append(os.path.join(root, file))
 
 all_files.sort()
 
@@ -46,9 +48,15 @@ for file_path in all_files:
 
     # Delete files that start with a dot (e.g., .DS_Store, .gitignore)
     if filename.startswith("."):
-        os.remove(file_path)
-        deleted_hidden_files.append(file_path)
-        print(f"🗑️ Deleted hidden file: {file_path}")
+        if os.path.exists(file_path):
+            try:
+                os.remove(file_path)
+                deleted_hidden_files.append(file_path)
+                print(f"🗑️ Deleted hidden file: {file_path}")
+            except Exception as e:
+                print(f"Error deleting {file_path}: {e}")
+        else:
+            print(f"File not found, could not delete: {file_path}")
         continue
 
     if ext not in valid_extensions:
@@ -63,7 +71,7 @@ for file_path in all_files:
         continue
 
     new_filename = f"{code}-{counter}{ext}"
-    new_path = os.path.join(dir_name, new_filename)
+    new_path = os.path.normpath(os.path.join(dir_name, new_filename))
 
     os.rename(file_path, new_path)
     print(f"Renamed: {file_path} → {new_path}")

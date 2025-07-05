@@ -8,7 +8,7 @@ from scripts.image_captions import CaptionGenerator
 from scripts.image_tags import get_tags
 import argparse
 
-def save_jsonl(captions, file_path = 'data/captions.jsonl'):
+def save_jsonl(captions, file_path = 'data/metadata/captions.jsonl'):
     with open(file_path, 'w') as f:
         for file, caption in captions.items():
             entry = {"file_name": file, "text": caption}
@@ -16,7 +16,7 @@ def save_jsonl(captions, file_path = 'data/captions.jsonl'):
 
 def main():
     parser = argparse.ArgumentParser(description='Generate captions for images in a directory and save as JSONL.')
-    parser.add_argument('--root_dir', type=str, default='data/images/custom', help='Root directory containing images')
+    parser.add_argument('--root_dir', type=str, default='data/images/custom/', help='Root directory containing images')
     args = parser.parse_args()
 
     # Ensure logs directory exists
@@ -51,7 +51,7 @@ def main():
                 caption = generator.generate_caption(tags)
                 captions[file] = caption
                 # save after every 5 images
-                if counter % 5 == 0:
+                if counter % 20 == 0:
                     save_jsonl(captions)
                 counter += 1
                 print(f"Processed: {file}")
@@ -64,7 +64,19 @@ def main():
 
     # Save all captions in LAION-style JSONL
     save_jsonl(captions)
-    print(f"✅ total files captioned: {counter}")
+    print(f"✅ New files captioned: {counter}")
 
+    # verify total captions and total images
+    total_images = sum(1 for root, dirs, files in os.walk(root_dir) for file in files if not file.startswith('.'))
+    # load captions and verify
+    with open(caption_path, 'r', encoding='utf-8') as f:
+        lines = f.readlines()
+        total_captions = len(lines)
+
+    print(f"Images: {total_images} | Captions: {total_captions}")
+
+    if total_captions != total_images:
+        print(f"[WARNING] Total captions ({total_captions}) does not match total images ({total_images})")
+   
 if __name__ == "__main__":
     main()
